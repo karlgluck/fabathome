@@ -1,0 +1,3 @@
+Commands with paramters.
+--config: hithere
+--fabfile: wtf

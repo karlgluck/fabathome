@@ -1,0 +1,43 @@
+ 
+// Commands (ID_* and IDM_*) 
+HID_CHUNK_IMPORTGEOMETRY                0x18004
+HID_VIEW_SHADED                         0x18005
+HID_VIEW_ZOOMIN                         0x1800B
+HID_VIEW_ZOOMOUT                        0x1800C
+HID_FABRICATE_SIMULATEONLY              0x18015
+HID_FABRICATE_CALIBRATE                 0x18017
+HID_PROCESS_SLICE                       0x18019
+HID_VIEW_NEXTPATH                       0x1801F
+HID_VIEW_PREVIOUSPATH                   0x18020
+HID_VIEW_ALLPATHS                       0x18021
+HID_VIEW_SHOWPATHS                      0x18022
+HID_VIEW_SHOWMODEL                      0x18023
+HID_PROCESS_SLICECURVED                 0x18024
+HID_MODEL_MATERIAL                      0x18026
+HID_MODEL_CHECKCOLLISIONS               0x18027
+HID_VIEW_SHOWTOOL                       0x18028
+HID_PROCESS_SHOWERRORS                  0x18029
+HID_FABRICATE_FABRICATE                 0x1802A
+HID_FABRICATE_PAUSE                     0x1802B
+HID_MODEL_DELETE                        0x1802C
+HID_VIEW_PATHNORMALS                    0x1802D
+HID_VIEW_MODELNORMALS                   0x1802F
+HID_MODEL_MOVETOORIGIN                  0x18030
+HID_EDIT_SELECTALL                      0x18031
+HID_MODEL_TRANSLATE                     0x18032
+HID_MODEL_ROTATE                        0x18033
+HID_MODEL_SCALE                         0x18034
+ 
+// Prompts (IDP_*) 
+ 
+// Resources (IDR_*) 
+HIDR_MAINFRAME                          0x20080
+HIDR_FabAtHomeTYPE                      0x20081
+ 
+// Dialogs (IDD_*) 
+HIDD_ABOUTBOX                           0x20064
+HIDD_PROGRESSDLG                        0x20083
+HIDD_MATERIAL                           0x20084
+HIDD_AXES                               0x20085
+ 
+// Frame Controls (IDW_*) 

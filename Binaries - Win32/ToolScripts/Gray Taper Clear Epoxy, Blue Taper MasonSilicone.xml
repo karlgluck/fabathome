@@ -1,0 +1,130 @@
+<!-- NOTE: SLICE HEIGHT FOR EPOXY IS A GUESS!  -->
+
+ <toolScript name="Gray Taper Clear Epoxy, Blue Taper MasonSilicone" description="Tool 1:   10cc syringe of clear epoxy with gray taper tip; Tool 2:   10cc syringe of MasonSilicone with blue taper tip" printer="Fab@Home Model 2">
+
+  <settings>
+    <!-- Settings that are not per-tool -->
+    <printAcceleration text="Print Acceleration" units="mm/s^2">100</printAcceleration>
+  </settings>
+
+   <!-- Expose settings for the first tool -->
+   <tool name="Gray Taper Clear Epoxy" material="Epoxy" scriptVariable="epoxy">
+     <settings>
+       <sliceHeight text="Slice Height" units="mm">0.39</sliceHeight>
+       <!--Top speed in millimeters/second for this tool during execution of path.-->
+         <pathSpeed text="Path Speed" units="mm/s">5</pathSpeed>
+       <!--Width of the path in millimeters.-->
+         <pathWidth text="Path Width" units="mm">1.0</pathWidth>
+       <!--(millimeters of plunger motion)/(millimeters tool travel) along deposition path.-->
+         <depositionRate text="DepositionRate" units="mm/mm">0.005</depositionRate>
+       <!--Seconds of early dispensing to start flow quickly.-->
+         <pushout text="Pushout" units="seconds">0.3</pushout>
+       <!--Seconds reverse plunger motion to stop flow quickly.-->
+         <suckback text="Suckback" units="seconds">0.25</suckback>
+       <!--Seconds to delay suckback by.-->
+         <suckbackDelay text="Suckback Delay" units="seconds">0</suckbackDelay>
+       <!--Millimeters of clearance between tip and last layer when traversing.-->
+         <clearance text="Clearance" units="mm">2</clearance>
+       <!--Number of paths after which to trigger an automatic pause.-->
+         <pausePaths text="Pause after # Paths" units="# of paths">30</pausePaths>
+       <!--no comment-->
+         <pitch text="Pitch" units="?">0.000396875</pitch>
+     </settings>
+   </tool>
+
+   <!-- Expose settings for the second tool -->
+   <tool name="Blue Taper Mason Silicone" material="Silicone" scriptVariable="silicone">
+     <settings>
+       <sliceHeight text="Slice Height" units="mm">0.4</sliceHeight>
+       <!--Top speed in millimeters/second for this tool during execution of path.-->
+         <pathSpeed text="Path Speed" units="mm/s">9</pathSpeed>
+       <!--Width of the path in millimeters.-->
+         <pathWidth text="Path Width" units="mm">0.4</pathWidth>
+       <!--(millimeters of plunger motion)/(millimeters tool travel) along deposition path.-->
+         <depositionRate text="DepositionRate" units="mm/mm">0.00085</depositionRate>
+       <!--Seconds of early dispensing to start flow quickly.-->
+         <pushout text="Pushout" units="seconds">0.11</pushout>
+       <!--Seconds reverse plunger motion to stop flow quickly.-->
+         <suckback text="Suckback" units="seconds">0.11</suckback>
+       <!--Seconds to delay suckback by.-->
+         <suckbackDelay text="Suckback Delay" units="seconds">0</suckbackDelay>
+       <!--Millimeters of clearance between tip and last layer when traversing.-->
+         <clearance text="Clearance" units="mm">1</clearance>
+       <!--Number of paths after which to trigger an automatic pause.-->
+         <pausePaths text="Pause after # Paths" units="# of paths">300</pausePaths>
+       <!--no comment-->
+         <pitch text="Pitch" units="?">0.000397</pitch>
+     </settings>
+   </tool>
+
+  <printScript>
+  <![CDATA[
+
+progress.setSteps(epoxy.meshes.length*2 + silicone.meshes.length*2 + 5);
+
+slicer.setSliceHeight(epoxy.sliceHeight);
+pather.set("PathWidth", epoxy.pathWidth);
+for (var i = 0; i < epoxy.meshes.length; ++i) {
+  progress.log("Slicing Epoxy Mesh");
+  slicer.doSlicing(epoxy.meshes[i]);
+  progress.step();
+  progress.log("Pathing Epoxy Mesh");
+  pather.doPathing(epoxy.meshes[i]);
+  progress.step();
+}
+
+slicer.setSliceHeight(silicone.sliceHeight);
+pather.set("PathWidth", silicone.pathWidth);
+for (var i = 0; i < silicone.meshes.length; ++i) {
+  progress.log("Slicing Silicone Mesh");
+  slicer.doSlicing(silicone.meshes[i]);
+  progress.step();
+  progress.log("Pathing Silicone Mesh");
+  pather.doPathing(silicone.meshes[i]);
+  progress.step();
+}
+
+var epoxyMaterialCalibration = {
+  pathSpeed: epoxy.pathSpeed,
+  depositionRate: epoxy.depositionRate,
+  pathWidth: epoxy.pathWidth,
+  depositionRate: epoxy.depositionRate,
+  pushout: epoxy.pushout,
+  suckback: epoxy.suckback,
+  suckbackDelay: epoxy.suckbackDelay,
+  clearance: epoxy.clearance,
+  pausePaths: epoxy.pausePaths,
+  pitch: epoxy.pitch
+};
+
+var siliconeMaterialCalibration = {
+  pathSpeed: silicone.pathSpeed,
+  depositionRate: silicone.depositionRate,
+  pathWidth: silicone.pathWidth,
+  depositionRate: silicone.depositionRate,
+  pushout: silicone.pushout,
+  suckback: silicone.suckback,
+  suckbackDelay: silicone.suckbackDelay,
+  clearance: silicone.clearance,
+  pausePaths: silicone.pausePaths,
+  pitch: silicone.pitch
+};
+
+var fabWriter = fabFile.fabAtHomeModel2Writer();
+
+fabWriter.addMeshes("epoxy", epoxyMaterialCalibration, epoxy.meshes);
+progress.step();
+fabWriter.addMeshes("silicone", siliconeMaterialCalibration, silicone.meshes);
+progress.step();
+
+fabWriter.sortBottomUp();
+fabWriter.setPrintAcceleration(printAcceleration);
+
+progress.step();
+fabWriter.print();
+
+progress.finish();
+
+  ]]>
+  </printScript>
+</toolScript>

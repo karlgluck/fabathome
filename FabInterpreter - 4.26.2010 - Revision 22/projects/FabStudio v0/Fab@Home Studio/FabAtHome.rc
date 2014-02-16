@@ -1,0 +1,1046 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "afxres.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// English (U.S.) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE LANG_ENGLISH, SUBLANG_ENGLISH_US
+#pragma code_page(1252)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""afxres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "#define _AFX_NO_SPLITTER_RESOURCES\r\n"
+    "#define _AFX_NO_OLE_RESOURCES\r\n"
+    "#define _AFX_NO_TRACKER_RESOURCES\r\n"
+    "#define _AFX_NO_PROPERTY_RESOURCES\r\n"
+    "\r\n"
+    "#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)\r\n"
+    "#ifdef _WIN32\r\n"
+    "LANGUAGE 9, 1\r\n"
+    "#pragma code_page(1252)\r\n"
+    "#endif //_WIN32\r\n"
+    "#include ""res\\FabAtHome.rc2""  // non-Microsoft Visual C++ edited resources\r\n"
+    "#include ""afxres.rc""         // Standard components\r\n"
+    "#include ""afxprint.rc""       // printing/print preview resources\r\n"
+    "#endif\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDR_MAINFRAME           ICON                    "res\\FabAtHome.ico"
+IDR_FabAtHomeTYPE       ICON                    "res\\FabAtHomeDoc.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDR_MAINFRAME           BITMAP                  "res\\Toolbar.bmp"
+IDB_FAHLOGO             BITMAP                  "res\\WikiWithName-small.bmp"
+IDB_CCSLLOGO            BITMAP                  "res\\ccsl_logo-small.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Toolbar
+//
+
+IDR_MAINFRAME TOOLBAR  20, 21
+BEGIN
+    BUTTON      ID_FILE_OPEN
+    BUTTON      ID_FILE_SAVE
+    SEPARATOR
+    BUTTON      ID_EDIT_CUT
+    BUTTON      ID_EDIT_COPY
+    BUTTON      ID_EDIT_PASTE
+    SEPARATOR
+    BUTTON      ID_APP_ABOUT
+    BUTTON      ID_CONTEXT_HELP
+    SEPARATOR
+    BUTTON      ID_PRINTER_EMERGENCYSTOP
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+IDR_MAINFRAME MENU 
+BEGIN
+    POPUP "F&ile"
+    BEGIN
+        MENUITEM "E&xit",                       ID_APP_EXIT
+    END
+    POPUP "&Edit"
+    BEGIN
+        MENUITEM "&Undo\tCtrl+Z",               ID_EDIT_UNDO
+        MENUITEM SEPARATOR
+        MENUITEM "Cu&t\tCtrl+X",                ID_EDIT_CUT
+        MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
+        MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
+        MENUITEM "Delete",                      ID_MODEL_DELETE
+        MENUITEM SEPARATOR
+        MENUITEM "Select All\tCtrl+A",          ID_EDIT_SELECTALL
+    END
+    POPUP "&Hardware"
+    BEGIN
+        POPUP "Emulation"
+        BEGIN
+            MENUITEM "Emulate Hardware",            ID_EMULATION_EMULATEHARDWARE
+            MENUITEM "Emulate Faster\t+",           ID_PRINTER_EMULATEFASTER
+            MENUITEM "Emulate Slower\t-",           ID_PRINTER_EMULATESLOWER
+        END
+        MENUITEM SEPARATOR
+        MENUITEM "&Connect to Hardware\tShift+C", ID_PRINTER_INITIALIZEHARDWARE
+        MENUITEM "Generate Log File",           ID_PRINTER_LOG
+        MENUITEM "Reset Hardware",              ID_PRINTER_RESETHARDWARE
+        MENUITEM "Network Connect",             ID_PRINTER_NETWORKCONNECT
+        MENUITEM SEPARATOR
+        MENUITEM "Enable Amplifiers",           ID_PRINTER_ENABLEMOTION
+        MENUITEM "Hardware Abort",              ID_PRINTER_ABORTALLMOTION
+        MENUITEM "Emergency Stop\tEsc",         ID_PRINTER_EMERGENCYSTOP
+    END
+    POPUP "&Config/Move"
+    BEGIN
+        MENUITEM "&Printer Configuration\tAlt+P", ID_PRINTER_LOADCONFIGURATION
+        MENUITEM "&Tool Configuration\tAlt+T",  ID_TOOL_TOOLCONFIGURATION
+        MENUITEM SEPARATOR
+        MENUITEM "&Jog Carriage\tShift+J",      ID_PRINTER_JOG
+        MENUITEM "Jog T&ool\tShift+T",          ID_PRINTER_JOGTOOL
+    END
+    POPUP "&Model"
+    BEGIN
+        MENUITEM "&Import Geometry\tCtrl+G",    ID_CHUNK_IMPORTGEOMETRY
+        MENUITEM SEPARATOR
+        MENUITEM "Move To &Origin\tCtrl+O",     ID_MODEL_MOVETOORIGIN
+        MENUITEM "&Translate\tCtrl+T",          ID_MODEL_TRANSLATE
+        MENUITEM "&Rotate\tCtrl+R",             ID_MODEL_ROTATE
+        MENUITEM "&Scale\tCtrl+S",              ID_MODEL_SCALE
+        MENUITEM SEPARATOR
+        MENUITEM "&Properties...\tShift+P",     ID_MODEL_PROPERTIES
+    END
+    POPUP "&Fabrication"
+    BEGIN
+        MENUITEM "&Slice Geometry\tShift+S",    ID_FABRICATION_SLICE
+        MENUITEM SEPARATOR
+        MENUITEM "Pause Printing\tShift+B",     ID_FABRICATION_PAUSEPRINTING
+        MENUITEM "Pause at Tool Change",        ID_FABRICATION_PAUSEATTOOLCHANGE, CHECKED, INACTIVE
+        MENUITEM "Auto-resume",                 ID_FABRICATION_AUTORESUME, INACTIVE
+        MENUITEM SEPARATOR
+        MENUITEM "Start &Printing\tCtrl+P",     ID_FABRICATE_FABRICATE
+    END
+    POPUP "&View"
+    BEGIN
+        MENUITEM "&Build Info\tShift+I",        ID_VIEW_SHOWBUILDINFO
+        MENUITEM "&Hardware Status\tShift+H",   ID_PRINTER_SHOWSTATUS
+        MENUITEM "&Log Bar\tShift+L",           ID_VIEW_LOGBAR
+        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
+        MENUITEM SEPARATOR
+        MENUITEM "Show Printer",                ID_VIEW_SHOWPRINTER
+        MENUITEM "Show Model",                  ID_VIEW_SHOWMODEL
+        MENUITEM "Render Shaded",               ID_VIEW_SHADED
+        POPUP "Show Layers"
+        BEGIN
+            MENUITEM "Current Layer\tHome",         ID_VIEW_CURRENTPATH
+            MENUITEM "Next Layer\tPage Up",         ID_VIEW_NEXTPATH
+            MENUITEM "Previous Layer\tPage Dn",     ID_VIEW_PREVIOUSPATH
+            MENUITEM "All Layers\tEnd",             ID_VIEW_ALLPATHS
+        END
+        MENUITEM "Show Paths",                  ID_VIEW_SHOWPATHS
+        MENUITEM "Show Trace",                  ID_VIEW_SHOWTRACE
+        MENUITEM SEPARATOR
+        MENUITEM "Zoom In\tI",                  ID_VIEW_ZOOMIN
+        MENUITEM "Zoom Out\tO",                 ID_VIEW_ZOOMOUT
+        MENUITEM SEPARATOR
+        MENUITEM "Reset View",                  ID_VIEW_RESETVIEW
+    END
+    POPUP "&Window"
+    BEGIN
+        MENUITEM "&New Window",                 ID_WINDOW_NEW
+        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
+        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
+        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+    END
+    POPUP "H&elp"
+    BEGIN
+        MENUITEM "&Help Topics",                ID_HELP_FINDER
+        MENUITEM SEPARATOR
+        MENUITEM "&About Fab@Home...",          ID_APP_ABOUT
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_MAINFRAME ACCELERATORS 
+BEGIN
+    "G",            ID_CHUNK_IMPORTGEOMETRY, VIRTKEY, CONTROL, NOINVERT
+    VK_F1,          ID_CONTEXT_HELP,        VIRTKEY, SHIFT, NOINVERT
+    "C",            ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_COPY,           VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_EDIT_CUT,            VIRTKEY, SHIFT, NOINVERT
+    "X",            ID_EDIT_CUT,            VIRTKEY, CONTROL, NOINVERT
+    "V",            ID_EDIT_PASTE,          VIRTKEY, CONTROL, NOINVERT
+    VK_INSERT,      ID_EDIT_PASTE,          VIRTKEY, SHIFT, NOINVERT
+    "A",            ID_EDIT_SELECTALL,      VIRTKEY, CONTROL, NOINVERT
+    VK_BACK,        ID_EDIT_UNDO,           VIRTKEY, ALT, NOINVERT
+    "Z",            ID_EDIT_UNDO,           VIRTKEY, CONTROL, NOINVERT
+    "P",            ID_FABRICATE_FABRICATE, VIRTKEY, CONTROL, NOINVERT
+    VK_SPACE,       ID_FABRICATE_PAUSE,     VIRTKEY, SHIFT, NOINVERT
+    "B",            ID_FABRICATION_PAUSEPRINTING, VIRTKEY, SHIFT, NOINVERT
+    "S",            ID_FABRICATION_SLICE,   VIRTKEY, SHIFT, NOINVERT
+    "N",            ID_FILE_NEW,            VIRTKEY, CONTROL, NOINVERT
+    "O",            ID_FILE_OPEN,           VIRTKEY, SHIFT, CONTROL, ALT, NOINVERT
+    VK_F1,          ID_HELP,                VIRTKEY, NOINVERT
+    VK_PRIOR,       ID_JOG_TOOL_BKD,        VIRTKEY, CONTROL, NOINVERT
+    VK_NEXT,        ID_JOG_TOOL_FWD,        VIRTKEY, CONTROL, NOINVERT
+    VK_DOWN,        ID_JOG_X_BKD,           VIRTKEY, NOINVERT
+    VK_UP,          ID_JOG_X_FWD,           VIRTKEY, NOINVERT
+    VK_LEFT,        ID_JOG_Y_LEFT,          VIRTKEY, NOINVERT
+    VK_RIGHT,       ID_JOG_Y_RIGHT,         VIRTKEY, NOINVERT
+    VK_DOWN,        ID_JOG_Z_DOWN,          VIRTKEY, CONTROL, NOINVERT
+    VK_UP,          ID_JOG_Z_UP,            VIRTKEY, CONTROL, NOINVERT
+    VK_DELETE,      ID_MODEL_DELETE,        VIRTKEY, NOINVERT
+    "O",            ID_MODEL_MOVETOORIGIN,  VIRTKEY, CONTROL, NOINVERT
+    "R",            ID_MODEL_ROTATE,        VIRTKEY, CONTROL, NOINVERT
+    "S",            ID_MODEL_SCALE,         VIRTKEY, CONTROL, NOINVERT
+    "T",            ID_MODEL_TRANSLATE,     VIRTKEY, CONTROL, NOINVERT
+    VK_F6,          ID_NEXT_PANE,           VIRTKEY, NOINVERT
+    VK_F6,          ID_PREV_PANE,           VIRTKEY, SHIFT, NOINVERT
+    VK_ESCAPE,      ID_PRINTER_EMERGENCYSTOP, VIRTKEY, NOINVERT
+    VK_ADD,         ID_PRINTER_EMULATEFASTER, VIRTKEY, NOINVERT
+    VK_OEM_PLUS,    ID_PRINTER_EMULATEFASTER, VIRTKEY, NOINVERT
+    VK_OEM_PLUS,    ID_PRINTER_EMULATEFASTER, VIRTKEY, SHIFT, NOINVERT
+    VK_OEM_MINUS,   ID_PRINTER_EMULATESLOWER, VIRTKEY, NOINVERT
+    VK_OEM_MINUS,   ID_PRINTER_EMULATESLOWER, VIRTKEY, SHIFT, NOINVERT
+    VK_SUBTRACT,    ID_PRINTER_EMULATESLOWER, VIRTKEY, NOINVERT
+    "C",            ID_PRINTER_INITIALIZEHARDWARE, VIRTKEY, SHIFT, NOINVERT
+    "J",            ID_PRINTER_JOG,         VIRTKEY, SHIFT, NOINVERT
+    "T",            ID_PRINTER_JOGTOOL,     VIRTKEY, SHIFT, NOINVERT
+    "P",            ID_PRINTER_LOADCONFIGURATION, VIRTKEY, ALT, NOINVERT
+    "H",            ID_PRINTER_SHOWSTATUS,  VIRTKEY, SHIFT, NOINVERT
+    "T",            ID_TOOL_TOOLCONFIGURATION, VIRTKEY, ALT, NOINVERT
+    VK_END,         ID_VIEW_ALLPATHS,       VIRTKEY, NOINVERT
+    VK_HOME,        ID_VIEW_CURRENTPATH,    VIRTKEY, NOINVERT
+    "L",            ID_VIEW_LOGBAR,         VIRTKEY, SHIFT, NOINVERT
+    VK_PRIOR,       ID_VIEW_NEXTPATH,       VIRTKEY, NOINVERT
+    VK_NEXT,        ID_VIEW_PREVIOUSPATH,   VIRTKEY, NOINVERT
+    "I",            ID_VIEW_SHOWBUILDINFO,  VIRTKEY, SHIFT, NOINVERT
+    "I",            ID_VIEW_ZOOMIN,         VIRTKEY, NOINVERT
+    "O",            ID_VIEW_ZOOMOUT,        VIRTKEY, NOINVERT
+    "P",            ID_MODEL_PROPERTIES,    VIRTKEY, SHIFT, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_ABOUTBOX DIALOGEX 0, 0, 243, 255
+STYLE DS_SETFONT | DS_MODALFRAME | DS_3DLOOK | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "About Fab@Home"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    LTEXT           "Fab@Home Version 0.23",IDC_STATIC,7,93,119,8,SS_NOPREFIX
+    LTEXT           "Copyright (C) 2008 Evan Malone && Hod Lipson",IDC_STATIC,7,107,229,8
+    DEFPUSHBUTTON   "OK",IDOK,186,234,50,14,WS_GROUP
+    LTEXT           "Tuesday, July 29, 2008",IDC_STATICBUILD,7,122,100,8
+    CONTROL         145,IDC_STATIC_FAHLOGO,"Static",SS_BITMAP,7,7,69,78,WS_EX_CLIENTEDGE
+    CONTROL         146,IDC_STATIC_CCSLLOGO,"Static",SS_BITMAP | SS_REALSIZEIMAGE,89,7,69,78,WS_EX_CLIENTEDGE
+    CONTROL         149,IDC_STATIC_LOGOCENPRA,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,159,107,54,WS_EX_CLIENTEDGE
+    LTEXT           "Fab@Home 0.23 is a contribution from:",IDC_STATIC,7,146,204,8
+    LTEXT           "Copyright (c) 2008, Paulo Inforçatti Neto (paulo.inforcatti@cenpra.gov.br) Renan Rodrigues dos Santos and Arnaldo L. Lixandrão Filho",IDC_STATIC,7,216,229,18
+    LTEXT           "Renato Archer Research Center (CenPRA), Campinas, Brazil",IDC_STATIC,121,173,115,16
+END
+
+IDD_PROGRESSDLG DIALOG  0, 0, 187, 60
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Progress"
+FONT 8, "MS Sans Serif"
+BEGIN
+    PUSHBUTTON      "Cancel",IDCANCEL,69,37,50,14
+    CONTROL         "Progress1",IDC_BAR,"msctls_progress32",WS_BORDER,7,21,171,9
+    LTEXT           "Progress...",IDC_TEXT,7,7,173,10
+END
+
+IDD_AXES DIALOGEX 0, 0, 123, 95
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Axes"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_XAX,38,21,78,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YAX,38,35,78,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ZAX,38,49,78,12,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,7,74,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,66,74,50,14
+    LTEXT           "X-Axis",IDC_STATIC,7,22,28,8
+    LTEXT           "Set translation:",IDC_AXES_STATIC,7,7,109,8
+    LTEXT           "Z-Axis",IDC_STATIC,7,50,28,8
+    LTEXT           "Y-Axis",IDC_STATIC,7,36,28,8
+END
+
+IDD_JOGCARRIAGE DIALOGEX 0, 0, 250, 118
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Jog Carriage - Pressing ESC 2 times will abort motion"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    PUSHBUTTON      "4. Find Home",IDC_BUTTONHOME,35,96,51,14
+    PUSHBUTTON      "5. Find Safe",IDC_BUTTONGOTOSAFE,96,97,51,14
+    PUSHBUTTON      "6. Goto Origin",IDC_BUTTONGOTOORIGIN,163,97,51,14
+    PUSHBUTTON      "3. Set Origin",IDC_BUTTONSETORIGIN,163,78,51,14
+    EDITTEXT        IDC_XEDIT,156,12,61,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_YEDIT,156,35,61,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ZEDIT,156,59,61,14,ES_AUTOHSCROLL
+    LTEXT           "Commanded",IDC_STATIC,168,1,42,8
+    CONTROL         "",IDC_SPINX,"msctls_updown32",UDS_ARROWKEYS,220,7,16,23
+    CONTROL         "",IDC_SPINY,"msctls_updown32",UDS_ARROWKEYS,220,31,16,23
+    CONTROL         "",IDC_SPINZ,"msctls_updown32",UDS_ARROWKEYS,220,58,9,18
+    LTEXT           "Z-Axis",IDC_STATIC,7,62,21,8
+    LTEXT           "Y-Axis",IDC_STATIC,7,38,21,8
+    LTEXT           "X-Axis",IDC_STATIC,7,15,22,8
+    PUSHBUTTON      "1. Set Home",IDC_BUTTONSETHOME,35,78,51,14,NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_XRT,89,12,61,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_YRT,89,35,61,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    EDITTEXT        IDC_EDIT_ZRT,89,59,61,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_TABSTOP
+    LTEXT           "Real-time",IDC_STATIC,105,1,32,8
+    LTEXT           "Increment",IDC_STATIC,42,1,33,8
+    EDITTEXT        IDC_X_INC,34,12,48,14,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        IDC_Y_INC,34,35,48,14,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    EDITTEXT        IDC_Z_INC,34,59,48,14,ES_AUTOHSCROLL | NOT WS_TABSTOP
+    PUSHBUTTON      "2. Set Safe",IDC_BUTTONSETSAFE,96,78,51,14,NOT WS_TABSTOP
+END
+
+IDD_JOGTOOL DIALOGEX 0, 0, 237, 76
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Jog Tool - ESC will abort motion"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Tool",IDC_STATIC,7,8,14,8
+    COMBOBOX        IDC_COMBOTOOL,34,6,157,60,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Position",IDC_STATIC,103,51,27,12,NOT WS_VISIBLE
+    CONTROL         "",IDC_SPINPOS,"msctls_updown32",UDS_ARROWKEYS | WS_TABSTOP,209,48,11,16
+    EDITTEXT        IDC_TOOL_INC,131,50,74,14,ES_AUTOHSCROLL
+    LTEXT           "Increment",IDC_STATIC,156,38,32,8,SS_NOPREFIX
+    CONTROL         "Active",IDC_CHECK_CURRENT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,195,6,32,15
+    EDITTEXT        IDC_EDITPOS,54,50,45,14,ES_AUTOHSCROLL | NOT WS_VISIBLE
+    EDITTEXT        IDC_EDIT_RTPOS,4,50,45,14,ES_AUTOHSCROLL | ES_READONLY | NOT WS_VISIBLE
+    LTEXT           "Real-time",IDC_STATIC,10,38,32,8,NOT WS_VISIBLE
+    LTEXT           "Commanded",IDC_STATIC,58,38,42,8,NOT WS_VISIBLE
+END
+
+IDD_COMPORT DIALOGEX 0, 0, 238, 56
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Select COM Port"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,181,7,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,181,24,50,14
+    COMBOBOX        IDC_COMBO_PORT,7,25,162,76,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Connect to Fab@Home via:",IDC_STATIC,7,7,130,8
+END
+
+IDD_STATUSDLG DIALOGEX 0, 0, 175, 311
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hardware Status"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Status text",IDC_STATUSTEXT,7,7,161,297
+END
+
+IDD_CHUNKDLG DIALOGEX 0, 0, 261, 145
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Fabrication Properties"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    COMBOBOX        IDC_COMBOMAT,236,98,16,12,CBS_DROPDOWNLIST | CBS_SORT | NOT WS_VISIBLE | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBOTOOL,50,27,202,90,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBOPRIORITY,50,78,29,58,CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "Color...",IDC_BUTTONCOLOR,50,99,50,14
+    EDITTEXT        IDC_EDITALPHA,149,99,23,14,ES_AUTOHSCROLL
+    DEFPUSHBUTTON   "OK",IDOK,144,124,50,14
+    PUSHBUTTON      "Cancel",IDCANCEL,202,124,50,14
+    LTEXT           "Part Name",IDC_STATIC,7,9,34,8
+    LTEXT           "Tool/Material",IDC_STATIC,7,28,42,8
+    LTEXT           "Display",IDC_STATIC,7,102,24,8
+    LTEXT           "10cc Syringe (EFD 5111LL-B) with red 20 gauge taper (EFD 5125TT-B)",IDC_STATICTOOL,50,41,202,17
+    LTEXT           "Transparency",IDC_STATIC,101,102,45,8
+    LTEXT           "%",IDC_STATIC,175,102,8,8
+    LTEXT           "Priority",IDC_STATIC,7,80,24,8
+    LTEXT           "Higher priority chunks built prior to lower",IDC_STATIC,80,80,135,8
+    LTEXT           "Material",IDC_STATICMAT,240,85,12,9,NOT WS_VISIBLE
+    COMBOBOX        IDC_COMBO_CHUNKNAME,50,6,202,65,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    DEFPUSHBUTTON   "Apply",ID_APPLY_NOW,86,124,50,14
+    CONTROL         "Deposit Boundaries before Fill",IDC_CHECK_BOUNDFIRST,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,50,63,111,10
+    LTEXT           "Path Order",IDC_STATIC,8,63,36,8
+END
+
+IDD_BUILDINFO DIALOGEX 0, 0, 175, 275
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Build Information"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LTEXT           "Build Information",IDC_BUILDINFOTEXT,7,7,161,261
+END
+
+IDD_TOOLCHANGE DIALOGEX 0, 0, 371, 231
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Please select the mounted tool(s)..."
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    LISTBOX         IDC_LIST_AVAIL,6,15,139,190,LBS_SORT | LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LISTBOX         IDC_LIST_MOUNTED,207,15,146,190,LBS_SORT | LBS_MULTIPLESEL | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "Available Tools",IDC_STATIC,56,6,36,8
+    LTEXT           "Mounted Tool(s)",IDC_STATIC,263,6,53,8
+    PUSHBUTTON      "Mount->",IDC_BUTTON_MOUNT,155,23,43,14
+    PUSHBUTTON      "<-Unmount",IDC_BUTTON_UNMOUNT,155,43,43,14
+    LTEXT           "Configuration supports 0 tools",IDC_MAXTOOLS,20,210,105,8
+END
+
+IDD_TOOLDLGPARAMETERS DIALOGEX 0, 0, 387, 226
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Syringe "
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_DESCRIPTION,74,18,297,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIPDIAM,74,31,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PATHWIDTH,74,44,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PATHHEIGHT,74,57,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PUSHOUT,74,70,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SUCKBACK,74,83,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_SUCKBACKDELAY,266,31,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DEPOSITIONRATE,266,44,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_CLEARANCE,266,57,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PATHSPEED,266,70,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PAUSEPATHS,266,84,105,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOLGEOM,74,122,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOLOFFSET,74,135,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOLCOLOR,74,148,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BARRELGEOM,74,161,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BARRELOFFSET,74,174,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BARRELCOLOR,74,187,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BARRELDIAM,74,200,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIPGEOM,198,121,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIPOFFSET,198,134,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIPCOLOR,198,148,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TIPPOINT,198,161,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PLUNGERGEOM,198,174,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PLUNGEROFFSET,198,187,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_PLUNGERCOLOR,198,200,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DIRECTION,319,121,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_VOLUME,319,134,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MOTOR,319,148,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RANGE,319,161,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_BACKFILL,319,174,52,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_INCREMENT,319,187,52,12,ES_AUTOHSCROLL
+    GROUPBOX        "Rarely Changed Parameters",IDC_STATIC,7,110,371,109
+    GROUPBOX        "Frequently Changed Parameters",IDC_STATIC,7,7,371,95
+    LTEXT           "DESCRIPTION:",IDC_STATIC,13,20,52,8
+    LTEXT           "TIPDIAM:",IDC_STATIC,13,33,52,8
+    LTEXT           "PATHWIDTH:",IDC_STATIC,13,46,52,8
+    LTEXT           "SUCKBACK:",IDC_STATIC,13,85,52,8
+    LTEXT           "PATHHEIGHT:",IDC_STATIC,13,59,52,8
+    LTEXT           "PUSHOUT:",IDC_STATIC,13,72,52,8
+    LTEXT           "SUCKBACKDELAY:",IDC_STATIC,187,33,64,8
+    LTEXT           "DEPOSITIONRATE:",IDC_STATIC,187,46,66,8
+    LTEXT           "PAUSEPATHS:",IDC_STATIC,187,85,52,8
+    LTEXT           "CLEARANCE:",IDC_STATIC,187,59,52,8
+    LTEXT           "PATHSPEED:",IDC_STATIC,187,72,52,8
+    LTEXT           "TOOLGEOM:",IDC_STATIC,13,124,52,8
+    LTEXT           "TOOLOFFSET:",IDC_STATIC,13,137,52,8
+    LTEXT           "BARRELOFFSET:",IDC_STATIC,13,175,59,8
+    LTEXT           "TOOLCOLOR:",IDC_STATIC,13,150,52,8
+    LTEXT           "BARRELGEOM:",IDC_STATIC,13,162,52,8
+    LTEXT           "BARRELDIAM:",IDC_STATIC,13,201,52,8
+    LTEXT           "BARRELCOLOR:",IDC_STATIC,13,188,56,8
+    LTEXT           "TIPGEOM:",IDC_STATIC,131,124,52,8
+    LTEXT           "TIPOFFSET:",IDC_STATIC,131,137,52,8
+    LTEXT           "PLUNGERGEOM:",IDC_STATIC,131,175,59,8
+    LTEXT           "TIPCOLOR:",IDC_STATIC,131,150,52,8
+    LTEXT           "TIPPOINT:",IDC_STATIC,131,162,52,8
+    LTEXT           "PLUNGERCOLOR:",IDC_STATIC,131,201,62,8
+    LTEXT           "PLUNGEROFFSET:",IDC_STATIC,131,188,65,8
+    LTEXT           "DIRECTION:",IDC_STATIC,254,124,52,8
+    LTEXT           "VOLUME:",IDC_STATIC,254,137,52,8
+    LTEXT           "BACKFILL:",IDC_STATIC,254,175,52,8
+    LTEXT           "MOTOR:",IDC_STATIC,254,150,52,8
+    LTEXT           "RANGE:",IDC_STATIC,254,162,52,8
+    LTEXT           "INCREMENT:",IDC_STATIC,254,188,52,8
+    LTEXT           "MINPATHLENGTH:",IDC_STATIC,254,201,84,8
+    EDITTEXT        IDC_MINPATHLENGTH,319,200,52,12,ES_AUTOHSCROLL
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 1,0,0,12
+ PRODUCTVERSION 1,0,0,12
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "CompanyName", "Cornell University"
+            VALUE "FileDescription", "Fab@Home "
+            VALUE "FileVersion", "0,17a"
+            VALUE "InternalName", "FabAtHome"
+            VALUE "LegalCopyright", "Copyright (C) 2006"
+            VALUE "OriginalFilename", "FabAtHome.EXE"
+            VALUE "ProductName", "Fab@Home Desktop Fabber"
+            VALUE "ProductVersion", "0.17a"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_ABOUTBOX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 236
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 248
+    END
+
+    IDD_PROGRESSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 51
+    END
+
+    IDD_AXES, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 116
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 88
+    END
+
+    IDD_JOGCARRIAGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 236
+        VERTGUIDE, 34
+        VERTGUIDE, 89
+        VERTGUIDE, 156
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_JOGTOOL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 227
+        VERTGUIDE, 34
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 64
+    END
+
+    IDD_COMPORT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 231
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 49
+    END
+
+    IDD_STATUSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 168
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 304
+    END
+
+    IDD_CHUNKDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 252
+        VERTGUIDE, 50
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_BUILDINFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 168
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 268
+    END
+
+    IDD_TOOLCHANGE, DIALOG
+    BEGIN
+        LEFTMARGIN, 6
+        RIGHTMARGIN, 353
+        VERTGUIDE, 145
+        VERTGUIDE, 155
+        VERTGUIDE, 198
+        VERTGUIDE, 207
+        TOPMARGIN, 6
+        BOTTOMMARGIN, 225
+        HORZGUIDE, 15
+        HORZGUIDE, 72
+    END
+
+    IDD_TOOLDLGPARAMETERS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 378
+        VERTGUIDE, 13
+        VERTGUIDE, 126
+        VERTGUIDE, 250
+        VERTGUIDE, 371
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 219
+        HORZGUIDE, 28
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Cursor
+//
+
+IDC_HANDCURSOR          CURSOR                  "res\\cursor1.cur"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog Info
+//
+
+IDD_CHUNKDLG DLGINIT
+BEGIN
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0030, 
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0031, 
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0032, 
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0033, 
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0034, 
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0035, 
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0036, 
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0037, 
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0038, 
+    IDC_COMBOPRIORITY, 0x403, 2, 0
+0x0039, 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3131, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3531, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3631, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3731, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3831, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3931, "\000" 
+    IDC_COMBOPRIORITY, 0x403, 3, 0
+0x3032, "\000" 
+    0
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDR_MAINFRAME           "Fab@Home\nModel\nFabAtHome\nFab@Home Files (*.fah)\n.fah\nFabAtHome.Document\nFabAtHome Document"
+    IDR_FabAtHomeTYPE       "\nModel\nFabAtHome\nFab@Home Files (*.fah)\n.fah\nFabAtHome.Document\nFabAtHome Document"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_APP_TITLE       "FabAtHome"
+    AFX_IDS_IDLEMESSAGE     "For Help, press F1"
+    AFX_IDS_HELPMODEMESSAGE "Select an object on which to get Help"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_INDICATOR_EXT        "EXT"
+    ID_INDICATOR_CAPS       "CAP"
+    ID_INDICATOR_NUM        "NUM"
+    ID_INDICATOR_SCRL       "SCRL"
+    ID_INDICATOR_OVR        "OVR"
+    ID_INDICATOR_REC        "REC"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_NEW             "Create a new document\nNew"
+    ID_FILE_OPEN            "Open an existing document\nOpen"
+    ID_FILE_CLOSE           "Close the active document\nClose"
+    ID_FILE_SAVE            "Save the active document\nSave"
+    ID_FILE_SAVE_AS         "Save the active document with a new name\nSave As"
+    ID_FILE_PAGE_SETUP      "Change the printing options\nPage Setup"
+    ID_FILE_PRINT_SETUP     "Change the printer and printing options\nPrint Setup"
+    ID_FILE_PRINT           "Print the active document\nPrint"
+    ID_FILE_PRINT_PREVIEW   "Display full pages\nPrint Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_APP_ABOUT            "Display program information, version number and copyright\nAbout"
+    ID_APP_EXIT             "Quit the application; prompts to save documents\nExit"
+    ID_HELP_INDEX           "Opens Help\nHelp Topics"
+    ID_HELP_FINDER          "List Help topics\nHelp Topics"
+    ID_HELP_USING           "Display instructions about how to use help\nHelp"
+    ID_CONTEXT_HELP         "Display help for clicked on buttons, menus and windows\nHelp"
+    ID_HELP                 "Display help for current task or command\nHelp"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FILE_MRU_FILE1       "Open this document"
+    ID_FILE_MRU_FILE2       "Open this document"
+    ID_FILE_MRU_FILE3       "Open this document"
+    ID_FILE_MRU_FILE4       "Open this document"
+    ID_FILE_MRU_FILE5       "Open this document"
+    ID_FILE_MRU_FILE6       "Open this document"
+    ID_FILE_MRU_FILE7       "Open this document"
+    ID_FILE_MRU_FILE8       "Open this document"
+    ID_FILE_MRU_FILE9       "Open this document"
+    ID_FILE_MRU_FILE10      "Open this document"
+    ID_FILE_MRU_FILE11      "Open this document"
+    ID_FILE_MRU_FILE12      "Open this document"
+    ID_FILE_MRU_FILE13      "Open this document"
+    ID_FILE_MRU_FILE14      "Open this document"
+    ID_FILE_MRU_FILE15      "Open this document"
+    ID_FILE_MRU_FILE16      "Open this document"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_NEXT_PANE            "Switch to the next window pane\nNext Pane"
+    ID_PREV_PANE            "Switch back to the previous window pane\nPrevious Pane"
+    ID_TOOLDLGTITLE         "Tool Configuration Properties"
+    ID_PRINTERDLGTITLE      "Printer Configuration Properties"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_WINDOW_NEW           "Open another window for the active document\nNew Window"
+    ID_WINDOW_ARRANGE       "Arrange icons at the bottom of the window\nArrange Icons"
+    ID_WINDOW_CASCADE       "Arrange windows so they overlap\nCascade Windows"
+    ID_WINDOW_TILE_HORZ     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_TILE_VERT     "Arrange windows as non-overlapping tiles\nTile Windows"
+    ID_WINDOW_SPLIT         "Split the active window into panes\nSplit"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_EDIT_CLEAR           "Erase the selection\nErase"
+    ID_EDIT_CLEAR_ALL       "Erase everything\nErase All"
+    ID_EDIT_COPY            "Copy the selection and put it on the Clipboard\nCopy"
+    ID_EDIT_CUT             "Cut the selection and put it on the Clipboard\nCut"
+    ID_EDIT_FIND            "Find the specified text\nFind"
+    ID_EDIT_PASTE           "Insert Clipboard contents\nPaste"
+    ID_EDIT_REPEAT          "Repeat the last action\nRepeat"
+    ID_EDIT_REPLACE         "Replace specific text with different text\nReplace"
+    ID_EDIT_SELECT_ALL      "Select the entire document\nSelect All"
+    ID_EDIT_UNDO            "Undo the last action\nUndo"
+    ID_EDIT_REDO            "Redo the previously undone action\nRedo"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_TOOLBAR         "Show or hide the toolbar\nToggle ToolBar"
+    ID_VIEW_STATUS_BAR      "Show or hide the status bar\nToggle StatusBar"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCSIZE          "Change the window size"
+    AFX_IDS_SCMOVE          "Change the window position"
+    AFX_IDS_SCMINIMIZE      "Reduce the window to an icon"
+    AFX_IDS_SCMAXIMIZE      "Enlarge the window to full size"
+    AFX_IDS_SCNEXTWINDOW    "Switch to the next document window"
+    AFX_IDS_SCPREVWINDOW    "Switch to the previous document window"
+    AFX_IDS_SCCLOSE         "Close the active window and prompts to save the documents"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_SCRESTORE       "Restore the window to normal size"
+    AFX_IDS_SCTASKLIST      "Activate Task List"
+    AFX_IDS_MDICHILD        "Activate this window"
+END
+
+STRINGTABLE 
+BEGIN
+    AFX_IDS_PREVIEW_CLOSE   "Close print preview mode\nCancel Preview"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_ZOOMIN          "Magnify view"
+    ID_VIEW_ZOOMOUT         "Enlarge viewing space"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FABRICATION_PAUSEPRINTING "Pause and move to Safe Location or Resume"
+    ID_BUTTONSTOP           "Emergency Stop"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_PRINTER_ABORTALLMOTION "Abort build / abort motion at microcontroller"
+    ID_PRINTER_SHOWSTATUS   "Show low-level hardware diagnostic information"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_VIEW_RESETVIEW       "Reset the graphical view orientation"
+    ID_TOOL_LOADFILES       "Reload the tool files and parameters"
+    ID_VIEW_SHOWBUILDINFO   "Show fabrication statistics and progress for current model"
+    ID_FABRICATION_PAUSEATTOOLCHANGE 
+                            "Automatically pause build at tool changes; disabled for single tool configurations"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FABRICATION_SLICE    "Slice the model and generate toolpaths"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FABRICATE_FABRICATE  "Begin or abort fabricating the model"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_FABRICATION_STATUS   "Fabrication status"
+END
+
+STRINGTABLE 
+BEGIN
+    ID_PRINTER_EMERGENCYSTOP "Emergency Stop"
+    ID_FABRICATION_AUTORESUMEFROMAUTOPAUSE 
+                            "Automatically resume from automatic pauses"
+    ID_VIEW_LOGBAR          "Show or hide the Log Window\nToggle ToolBar"
+    ID_VIEW_LOGWINDOW       "Show or hide the Log Bar\nToggle Log Bar"
+END
+
+#endif    // English (U.S.) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+/////////////////////////////////////////////////////////////////////////////
+// Portuguese (Brazil) resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_PTB)
+#ifdef _WIN32
+LANGUAGE LANG_PORTUGUESE, SUBLANG_PORTUGUESE_BRAZILIAN
+#pragma code_page(1252)
+#endif //_WIN32
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_LOGOCENPRA          BITMAP                  "res\\LOGOCENPRA1.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_PRINTERDLGGENERAL DIALOGEX 0, 0, 225, 117
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "General Parameters"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_Name,110,7,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DESCRIPTION,110,22,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_STATUS_UPDATE_PERIOD,110,37,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_JOGSPEED,110,52,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MAXTOOLS,110,67,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DEFAULT_POD,110,82,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TOOLLIMITSWITCH,110,98,108,12,ES_AUTOHSCROLL
+    LTEXT           "Name:",IDC_STATIC,7,7,92,8
+    LTEXT           "Description:",IDC_STATIC,7,22,92,8
+    LTEXT           "JOGSPEED:",IDC_STATIC,7,52,92,8
+    LTEXT           "MAXTOOLS:",IDC_STATIC,7,67,67,8
+    LTEXT           "STATUS_UPDATE_PERIOD:",IDC_STATIC,7,37,99,8
+    LTEXT           "DEFAULT_POD:",IDC_STATIC,7,82,67,8
+    LTEXT           "TOOLLIMITSWITCH:",IDC_STATIC,7,97,67,8
+END
+
+IDD_PRINTERDLGCOMPONENT DIALOGEX 0, 0, 225, 146
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Components"
+FONT 8, "MS Sans Serif", 0, 0, 0x0
+BEGIN
+    EDITTEXT        IDC_COMPONENT,110,7,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_COLOR,110,22,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_DIRECTION,110,37,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_MOTOR,110,52,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_OFFSET,110,67,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_RANGE,110,82,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LIMIT_SWITCH,110,97,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_INCREMENT,110,112,108,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_APPENDGEOM,110,127,108,12,ES_AUTOHSCROLL
+    LTEXT           "COMPONENT:",IDC_STATIC,7,7,92,8
+    LTEXT           "COLOR:",IDC_STATIC,7,22,92,8
+    LTEXT           "MOTOR:",IDC_STATIC,7,52,92,8
+    LTEXT           "OFFSET:",IDC_STATIC,7,67,67,8
+    LTEXT           "DIRECTION:",IDC_STATIC,7,37,99,8
+    LTEXT           "RANGE:",IDC_STATIC,7,82,67,8
+    LTEXT           "LIMIT_SWITCH:",IDC_STATIC,7,97,92,8
+    LTEXT           "INCREMENT:",IDC_STATIC,7,112,92,8
+    LTEXT           "APPENDGEOM:",IDC_STATIC,7,127,99,8
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_PRINTERDLGGENERAL, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        VERTGUIDE, 99
+        VERTGUIDE, 110
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 110
+    END
+
+    IDD_PRINTERDLGCOMPONENT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 218
+        VERTGUIDE, 110
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+#endif    // Portuguese (Brazil) resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+#define _AFX_NO_SPLITTER_RESOURCES
+#define _AFX_NO_OLE_RESOURCES
+#define _AFX_NO_TRACKER_RESOURCES
+#define _AFX_NO_PROPERTY_RESOURCES
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_ENU)
+#ifdef _WIN32
+LANGUAGE 9, 1
+#pragma code_page(1252)
+#endif //_WIN32
+#include "res\FabAtHome.rc2"  // non-Microsoft Visual C++ edited resources
+#include "afxres.rc"         // Standard components
+#include "afxprint.rc"       // printing/print preview resources
+#endif
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

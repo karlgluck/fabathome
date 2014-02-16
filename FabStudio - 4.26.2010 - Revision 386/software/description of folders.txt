@@ -1,0 +1,27 @@
+
+
+//----[  common  ]-------------------------------------------------------------
+"common" refers to anything that is not limited in scope to just the Fab@Home
+project.
+
+  RULE OF THUMB:  if we didn't develop it for this project, put it here!
+
+Eg. libraries should go under folders in this directory
+        /common/quazip/ - quazip library goes here
+	...
+	
+
+//----[  projects  ]-----------------------------------------------------------
+Any self-contained software we develop will be somewhere under this folder.
+
+
+
+
+//----[  shared  ]-------------------------------------------------------------
+Source code that was developed for the Fab@Home and can be used in multiple
+projects goes here.
+
+    DONT BE AFRAID TO PUT STUFF HERE!  This directory should be bigger than
+    any project, since a project should almost entirely use shared, modular
+    code.  This IS the Fab@Home software library--the projects are proof
+    that it works.

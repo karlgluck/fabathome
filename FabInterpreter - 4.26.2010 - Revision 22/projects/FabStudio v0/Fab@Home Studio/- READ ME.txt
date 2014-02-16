@@ -1,0 +1,31 @@
+Compiling Notes for FAB@Home
+
+ONLY USE Microsoft Visual Studio 2008 (full version) to compile
+	-DO NOT USE VISUAL EXPRESS EDITION
+	-Program requires MFC 8.0, which comes with visual studio 2008
+
+Once Microsoft Visual Studio 2008 is installed open the FabAtHome.vcproj file
+contained in the same folder as this note.  Simply double clicking on it should
+properly open the project.
+
+ONLY USE THE FabAtHome.dsw if you want to open the program in the old Visual Studio
+(VC++ 6), otherwise ALWAYS USE the FabAtHome.vcproj file in order to keep the project
+space consistent with the 2008 standards.
+
+For future versions of Visual Studio one should open the 2008 file then recompile to create
+a new project file in the latest format and then update these notes.
+
+
+
+Problems Solved:
+
+	Forced a complete project rebuild because there is compatability issues with 
+	previous compiled headers.
+
+
+Some general notes:
+
+	The tool type of any given layer is stored in its respective chunk, not in the layer itself,
+	use a method like chunk[FindChunk(fab.layer[c].chunkid)] to get the chunk of a layer
+
+-Justin Quartiere

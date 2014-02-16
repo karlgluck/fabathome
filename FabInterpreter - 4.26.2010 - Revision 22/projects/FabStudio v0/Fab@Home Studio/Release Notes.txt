@@ -1,0 +1,120 @@
+=======================================================
+==========Fab@Home Version 0.23 Release Notes==========
+=======================================================
+------------------------------
+Bugs unsolved in this release:
+------------------------------
+* 0.23: The process: connect to hardware, do some movement or FindHomePos() or FindSafePos() and disconnect, repeated 7 times hangs the microprocessor and a needs a hard reset, sometimes only a reboot on computer makes the printer work again.
+--------------------------------------------------------
+This release includes fixes for the following known bugs:
+--------------------------------------------------------
+* 0.23: Add tooltips for buttons in "Printer Configuration" and "Tool Configuration" dialogs.
+
+* 0.23: FindSafePos() reaching safe instead of finding safe after a disconnect and reconnect hardware.
+
+* 0.23: Sleep period in WaitForMoveDone() and WaitForMoveStart() causing malfunction.
+
+* 0.23: A error when use safe and refresh buttons on printer configuration dialog setting the rangemax of all axis of the printer to 0. 
+
+* 0.23: When you start the software only the printer file specification is necessary to be loaded.
+
+* 0.23: It is necessary to set the tool directory and to mount at least one tool to use most of the features of the program
+
+* 0.23: The menu organization was changed.
+
+* 0.23: The parameter in the tool file "LIMITSWITCH" was removed and a new parameter in the printer file was created: the "TOOLLIMITSWITCH". With this new parameter you can tell the program which U and V limits switches are installed in the machine and you can enable them. In the case of the limit switch of the active syringe is active during a printing, the applications immediately pauses the process allowing you to recharge the syringe. Then you can hit Resume printing and the machine will continue the process of building the object.
+
+* 0.23: Minor fixes and improvements
+
+------------------------------------------------
+The release includes the following new features:
+------------------------------------------------
+
+* 0.23: A "LogBar" was created to show all the necessary messages to the user.
+
+* 0.23: There are two new user interfaces: the "Printer Configuration" and the "Tool Configuration" dialogs. All of them have six buttons and fields for every single parameter. The Tool dialog also allows you to mount/unmount one or more tools. There are some conditions to use the buttons, for example, the button "save" in the "printer configuration dialog" can only be used if the hardware is disconnected. But in all cases, the user is informed why they can't use the button. Below, there is an explanation of the functionality of each button:
+
+		- Save: when you click this button, the parameters showed in the dialog are saved in the current loaded configuration file and the "run-time" parameters are refreshed. Beware that when you click the save button, the format and the comments of your configuration file will be changed. The comments of each parameters now can be seen in tooltips. Just let your mouse stopped on top of the edit field of the parameter and you will see a text explaining it
+		- Cancel: When you click Cancel, the original file will be loaded and will replace the "run-time" parameters
+		- Close: You can click Close to close the dialog. You can also use ALT+F4 or ESC
+		- Refresh: If you click Refresh, the parameters showed in the dialog will replace the "run-time" parameters. This seems to be very useful when you are setting up parameters for a new material. You can also use the key F5.
+		- Import/Change tool dir.: With the button Import ("Printer Configuration" dialog), you can load a different printer configuration file from your hard disk. The button Change tool dir. ("Tool Configuration" dialog) allows you to change the tool directory where you have all of your tool configuration file.
+		- Export: When you click Export, a "Save as" dialog will be prompted allowing you to save the parameters showed in the dialog to a new configuration file.
+
+* 0.23: Shortcut keys were added to the more commonly used functions
+
+* 0.23: You can manually set the home, safe and origin position. This way you can reduce errors due to the x or y limit switch if you asks the program to automatically find the home and safe position.
+
+
+
+=======================================================
+==========Fab@Home Version 0.22 Release Notes==========
+=======================================================
+--------------------------------------------------------
+This release includes fixes for the following known bugs:
+--------------------------------------------------------
+* 0.22e: Found a bug in how Z table motions were calculated during builds - this resulted in excessive motion and has been corrected
+
+* 0.22e: Modified how mutexes are handled in slicing and drawing threads to (hopefully) eliminate an occasasional crash related to thread deadlock and/or accessing bad memory
+
+* 0.22d: Found a bug which led to layers being offset after resuming from a pause.  Fixed within CFabricate::Fabricate() by keeping track of commanded positions as commands queued to the microcontroller are being executed.
+
+* Several users reported that the system would stop building part of the way into a job - the application and the firmware remain responsive, but the job stops, and the printer status indicates that a motion command is not executing. The bug has been tentatively traced to completion monitoring criteria in CFabrication::Fabricate. 
+
+* Motion commands sometimes do not complete - carriage motion stops short of commanded destination.  Bug traced to a variable overflow during calculation of the hypotenuse for linear interpolation motion, and to timeouts in "WaitFOrMOveDone".
+
+* Loss of communication with hardware reported by some users with older PCs has been tentatively traced to graphics rendering burden - graphics updates have been made less frequent and asynchronous to status updates.
+
+* Path planning often resulted in raster fill paths which extend beyond the boundaries of the model; this has been improved by correcting an error in how sharp corners are pruned from offset boundary paths.  Work is ongoing to improve the path planning.
+
+* The "Priority" feature in path planning was disabled in a prior version of the code - this has been reactivated.
+
+* Significant errors in how pushout and suckback were handled have been discovered and (hopefully) corrected in the CFabricate::Fabricate function. These changes may affect your tool parameters.
+
+* An error in path planning which tended to underfill areas with raster paths has also been discovered and corrected in the slicing routines. These changes may affect your tool parameters.
+
+------------------------------------------------
+The release includes the following new features:
+------------------------------------------------
+
+* 0.22d: Added "MINPATHLENGTH" parameter to tool file specification; will eliminate any raster fill paths shorter than the specified value (in mm).  This allows the user to eliminate very short paths which sometimes cause excessive material deposition.
+
+* New "view" modes, including wireframe rendering of models, the ability to show/hide the printer, display of toolpaths as they are created during the path planning process, display of tool tip traces during fabrication.  See the "view" menu for these.
+
+* A TCP/IP sockets network thread have been added so that external applications can command the Fab@Home hardware - the interface is still being developed, but the thread and sockets are functional. The printer menu includes the command "Network Connect" / "Network Disconnect". Network Connect causes the application to allocate sockets and act as a server, listening for connection requests on port 7871.  When a client requests connection, the server sends a "hello world" and then waits for strings to be sent - received strings are reported in the status bar at lower left.  Network Disconnect shuts down the server.
+
+
+
+=======================================================
+==========Fab@Home Version 0.21 Release Notes==========
+=======================================================
+
+This release includes fixes for the following known bugs:
+
+When pausing during a build, the system would frequently return to the wrong position, resulting in an offset in subsequent part layers which usually ruins the part being built.
+This has been tracked down to a synchronization error between the microcontroller and the application, and corrected, and now the autocalibration pausing should reduce position errors during builds, and improve build quality - remember to experiment with PATHSPEED and PAUSEPATHS in your tool files.
+
+The release includes the following new features:
+
+Tool files may now include SUCKBACKDELAY as a parameter.  This pospones the onset of the SUCKBACK phase of depositing materials (reverse motion of the syringe piston to stop flow) for an amount of time (in seconds) ranging from 0 (default) to SUCKBACK.  When suckback is delayed, on boundary paths (around the outside or inside edges of a part) the machine will continue to move around the boundary until the suckback has completed, with the effect of improving the connection between the start and end of the deposited material on the path.  On raster fill paths (back and forth motion which fills in the region inside of boundary paths), the delay causes the machine to halt at the last vertex of the path until suckback is complete. Careful tuning of PUSHOUT, SUCKBACK, SUCKBACKDELAY, and DEPOSITIONRATE should yield improved part quality.
+
+The application now can import "Vector data files" (.vct or .txt suffix) as well as STL files.  Vector data files are simply ASCII files with rows of X Y Z triples of floating point numbers representing vertices along a path.  The end of a path is marked by a blank line.  // can be used to indicate a comment. The paths need not be planar.  Once they are imported (use Model->Import Geometry, and filter for Vector Data Files), they can be treated just as STL files - materials may be assigned, and the vectors may be rotated, translated, or scaled, and can exist in the same model as an STL file. Units are millimeters. For example:
+
+
+//This is a vector file.
+//this draws a square 10.3 mm on a side
+0 0 0
+0 10.3 0
+10.3 10.3 0
+10.3 0 0
+0 0 0
+
+//the blank line above indicated the end of the first path
+//here is a 3D path
+0 0 0
+0 10 10
+5 5 5
+0 0 0
+
+
+

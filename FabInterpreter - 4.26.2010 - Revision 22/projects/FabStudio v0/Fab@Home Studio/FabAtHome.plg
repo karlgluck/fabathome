@@ -1,0 +1,157 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: SCM - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8A.bat" with contents
+[
+@echo off
+copy "hlp\SCM.cnt" .\Debug
+]
+Creating command line "C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8A.bat"
+Creating temporary file "C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8B.bat" with contents
+[
+@echo off
+start /wait hcw /C /E /M "hlp\SCM.hpj"
+if errorlevel 1 goto :Error
+if not exist "hlp\SCM.hlp" goto :Error
+copy "hlp\SCM.hlp" .\Debug
+goto :done
+:Error
+echo hlp\SCM.hpj(1) : error:
+type "hlp\SCM.log"
+:done
+]
+Creating command line "C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8B.bat"
+Creating command line "rc.exe /l 0x409 /fo"Debug/SCM.res" /d "_DEBUG" "C:\Documents and Settings\Hod Lipson\Desktop\SCM\SCM.rc"" 
+Copying contents file...
+        1 file(s) copied.
+Making help file...
+        1 file(s) copied.
+Creating temporary file "C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8C.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/SCM.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\AxesDlg.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\ChildFrm.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Chunk.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Fabrication.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Geometry.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Layer.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\MainFrm.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Material.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\MaterialDlg.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Model.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Path.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Process.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\ProgressDlg.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\SCM.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\SCMDoc.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\SCMView.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\SerialPort.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Tool.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Triangle.cpp"
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\Vec.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8C.tmp" 
+Creating temporary file "C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8D.tmp" with contents
+[
+/nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR"Debug/" /Fp"Debug/SCM.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\Documents and Settings\Hod Lipson\Desktop\SCM\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8D.tmp" 
+Creating temporary file "C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8E.tmp" with contents
+[
+opengl32.lib glu32.lib glaux.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/SCM.pdb" /debug /machine:I386 /out:"Debug/SCM.exe" /pdbtype:sept 
+".\Debug\AxesDlg.obj"
+".\Debug\ChildFrm.obj"
+".\Debug\Chunk.obj"
+".\Debug\Fabrication.obj"
+".\Debug\Geometry.obj"
+".\Debug\Layer.obj"
+".\Debug\MainFrm.obj"
+".\Debug\Material.obj"
+".\Debug\MaterialDlg.obj"
+".\Debug\Model.obj"
+".\Debug\Path.obj"
+".\Debug\Process.obj"
+".\Debug\ProgressDlg.obj"
+".\Debug\SCM.obj"
+".\Debug\SCMDoc.obj"
+".\Debug\SCMView.obj"
+".\Debug\SerialPort.obj"
+".\Debug\StdAfx.obj"
+".\Debug\Tool.obj"
+".\Debug\Triangle.obj"
+".\Debug\Vec.obj"
+".\Debug\SCM.res"
+]
+Creating command line "link.exe @C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8E.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+AxesDlg.cpp
+ChildFrm.cpp
+Chunk.cpp
+Fabrication.cpp
+Geometry.cpp
+Layer.cpp
+MainFrm.cpp
+Material.cpp
+MaterialDlg.cpp
+Model.cpp
+Path.cpp
+Process.cpp
+ProgressDlg.cpp
+SCM.cpp
+SCMDoc.cpp
+SCMView.cpp
+SerialPort.cpp
+C:\Documents and Settings\Hod Lipson\Desktop\SCM\SerialPort.cpp(22) : error C2065: 'ComPort' : undeclared identifier
+C:\Documents and Settings\Hod Lipson\Desktop\SCM\SerialPort.cpp(22) : error C2146: syntax error : missing ';' before identifier 'SetCommState'
+C:\Documents and Settings\Hod Lipson\Desktop\SCM\SerialPort.cpp(22) : error C2143: syntax error : missing ';' before '}'
+C:\Documents and Settings\Hod Lipson\Desktop\SCM\SerialPort.cpp(22) : warning C4551: function call missing argument list
+Tool.cpp
+Triangle.cpp
+Vec.cpp
+Generating Code...
+Error executing cl.exe.
+Creating temporary file "C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8F.tmp" with contents
+[
+/nologo /o"Debug/SCM.bsc" 
+".\Debug\StdAfx.sbr"
+".\Debug\AxesDlg.sbr"
+".\Debug\ChildFrm.sbr"
+".\Debug\Chunk.sbr"
+".\Debug\Fabrication.sbr"
+".\Debug\Geometry.sbr"
+".\Debug\Layer.sbr"
+".\Debug\MainFrm.sbr"
+".\Debug\Material.sbr"
+".\Debug\MaterialDlg.sbr"
+".\Debug\Model.sbr"
+".\Debug\Path.sbr"
+".\Debug\Process.sbr"
+".\Debug\ProgressDlg.sbr"
+".\Debug\SCM.sbr"
+".\Debug\SCMDoc.sbr"
+".\Debug\SCMView.sbr"
+".\Debug\SerialPort.sbr"
+".\Debug\Tool.sbr"
+".\Debug\Triangle.sbr"
+".\Debug\Vec.sbr"]
+Creating command line "bscmake.exe @C:\DOCUME~1\HODLIP~1\LOCALS~1\Temp\RSPD8F.tmp"
+Creating browse info file...
+<h3>Output Window</h3>
+
+
+
+<h3>Results</h3>
+SCM.exe - 3 error(s), 1 warning(s)
+</pre>
+</body>
+</html>

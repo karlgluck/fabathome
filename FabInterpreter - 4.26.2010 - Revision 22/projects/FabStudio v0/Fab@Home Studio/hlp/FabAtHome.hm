@@ -1,0 +1,111 @@
+ 
+// Commands (ID_* and IDM_*) 
+HID_FABRICATION_STATUS                  0x10065
+HID_CHUNK_IMPORTGEOMETRY                0x18004
+HID_VIEW_SHADED                         0x18005
+HID_VIEW_ZOOMIN                         0x1800B
+HID_VIEW_ZOOMOUT                        0x1800C
+HID_FABRICATE_SIMULATEONLY              0x18015
+HID_FABRICATE_CALIBRATE                 0x18017
+HID_PROCESS_SLICE                       0x18019
+HID_VIEW_NEXTPATH                       0x1801F
+HID_VIEW_PREVIOUSPATH                   0x18020
+HID_VIEW_ALLPATHS                       0x18021
+HID_VIEW_SHOWPATHS                      0x18022
+HID_VIEW_SHOWMODEL                      0x18023
+HID_PROCESS_SLICECURVED                 0x18024
+HID_MODEL_MATERIAL                      0x18026
+HID_MODEL_CHECKCOLLISIONS               0x18027
+HID_VIEW_SHOWTOOL                       0x18028
+HID_PROCESS_SHOWERRORS                  0x18029
+HID_FABRICATE_FABRICATE                 0x1802A
+HID_FABRICATE_PAUSE                     0x1802B
+HID_MODEL_DELETE                        0x1802C
+HID_VIEW_PATHNORMALS                    0x1802D
+HID_VIEW_MODELNORMALS                   0x1802F
+HID_MODEL_MOVETOORIGIN                  0x18030
+HID_EDIT_SELECTALL                      0x18031
+HID_MODEL_TRANSLATE                     0x18032
+HID_MODEL_ROTATE                        0x18033
+HID_MODEL_SCALE                         0x18034
+HID_PRINTER_LOADCONFIGURATION           0x18035
+HID_PRINTER_JOG                         0x18036
+HID_PRINTER_JOGTOOL                     0x18037
+HID_MODEL_PROPERTIES                    0x18038
+HID_PRINTER_INITIALIZEHARDWARE          0x18039
+HID_PRINTER_EMULATEHARDWARE             0x1803A
+HID_FABRICATION_SLICE                   0x1803F
+HID_VIEW_TRACETOOL                      0x18040
+HID_VIEW_TOOLTRACES                     0x18041
+HID_VIEW_SHOWTOOLTRACES                 0x18042
+HID_VIEW_SHOWTIPTRACES                  0x18043
+HID_VIEW_SHOWSTATUS                     0x18044
+HID_PRINTER_ENABLEMOTION                0x18045
+HID_PRINTER_PAUSEQUEUE                  0x18046
+HID_PRINTER_ABORTALLMOTION              0x18047
+HID_PRINTER_RESETHARDWARE               0x18048
+HID_VIEW_SHOWCOMMANDED                  0x18049
+HID_PRINTER_SHOWSTATUS                  0x1804A
+HID_VIEW_LAYERS                         0x1804B
+HID_LAYERS_L                            0x1804C
+HID_JOG_X_FWD                           0x18051
+HID_JOG_X_BKD                           0x18052
+HID_JOG_Y_LEFT                          0x18053
+HID_JOG_Y_RIGHT                         0x18054
+HID_JOG_Z_UP                            0x18055
+HID_JOG_Z_DOWN                          0x18056
+HID_JOG_TOOL_FWD                        0x18059
+HID_JOG_TOOL_BKD                        0x1805A
+HID_FABRICATION_PAUSEPRINTING           0x1805E
+HID_BUTTONSTOP                          0x1805F
+HID_VIEW_CURRENTPATH                    0x18062
+HID_VIEW_RESETVIEW                      0x18068
+HID_TOOL_LOADFILES                      0x1806A
+HID_TOOL_REFRESHPARAMETERS              0x1806B
+HID_VIEW_SHOWBUILDINFO                  0x1806C
+HID_TOOL_CHANGETOOLS                    0x1806D
+HID_FABRICATION_PAUSEATTOOLCHANGE       0x1806E
+HID_PRINTER_EMERGENCYSTOP               0x18070
+HID_FABRICATION_AUTORESUMEFROMAUTOPAUSE 0x18073
+HID_FABRICATION_AUTORESUME              0x18074
+HID_PRINTER_LOGMOTION                   0x18075
+HID_PRINTER_LOG                         0x18076
+HID_VIEW_LOGBAR                         0x18077
+HID_VIEW_LOGWINDOW                      0x18078
+HID_TOOL_TOOLCONFIGURATION              0x18079
+HID_FABRICATION_RASTERFIRST             0x1807A
+HID_FABRICATION_FILLFIRST               0x1807B
+HID_PRINTER_EMULATEFASTER               0x1807C
+HID_PRINTER_EMULATESLOWER               0x1807D
+HID_EMULATION_EMULATEHARDWARE           0x1807E
+HID_VIEW_RENDERSHADED                   0x1807F
+HID_VIEW_SHOWPRINTER                    0x18080
+HID_VIEW_SHOWTRACE                      0x18081
+HID_PRINTER_NETWORKCONNECT              0x18082
+HID_TOOLDLGTITLE                        0x1E152
+HID_PRINTERDLGTITLE                     0x1E153
+ 
+// Prompts (IDP_*) 
+ 
+// Resources (IDR_*) 
+HIDR_MAINFRAME                          0x20080
+HIDR_FabAtHomeTYPE                      0x20081
+HIDR_ACCELERATOR1                       0x2008E
+ 
+// Dialogs (IDD_*) 
+HIDD_ABOUTBOX                           0x20064
+HIDD_TOOLDLGPARAMETERS                  0x20067
+HIDD_PRINTERDLGGENERAL                  0x20068
+HIDD_PRINTERDLGCOMPONENT                0x20069
+HIDD_LOGBAR                             0x2007B
+HIDD_PROGRESSDLG                        0x20083
+HIDD_AXES                               0x20085
+HIDD_JOGCARRIAGE                        0x20086
+HIDD_JOGTOOL                            0x20087
+HIDD_CHUNKDLG                           0x20088
+HIDD_COMPORT                            0x20089
+HIDD_STATUSDLG                          0x2008A
+HIDD_BUILDINFO                          0x2008B
+HIDD_TOOLCHANGE                         0x2008F
+ 
+// Frame Controls (IDW_*) 

@@ -1,0 +1,56 @@
+////////////////////////////////////////BASE/////////////////////////////////////////
+COMPONENT                     NewBase.STL
+COLOR                         0.000000 0.200000 0.600000 0.500000
+DIRECTION                     -1 0.000000 0.000000 0.000000
+INCREMENT                     0.500000
+LIMITSWITCH                   0 0
+MOTOR                         -1 1 0.010000
+OFFSET                        200.000000 -220.000000 -151.000000
+RANGE                         0.000000 0.000000 0.000000
+
+
+
+/////////////////////////////////////X-CARRIAGE//////////////////////////////////////
+COMPONENT                     NewXCarriage.STL
+COLOR                         0.500000 0.500000 0.500000 0.500000
+DIRECTION                     0 1.000000 0.000000 0.000000
+INCREMENT                     1.000000
+LIMITSWITCH                   1 1
+MOTOR                         0 -1 0.001984
+OFFSET                        200.000000 -220.000000 -151.000000
+RANGE                         0.000000 205.000000 0.000000
+
+
+
+/////////////////////////////////////Y-CARRIAGE//////////////////////////////////////
+COMPONENT                     NewYCarriage.STL
+COLOR                         0.000000 0.200000 0.600000 0.500000
+DIRECTION                     1 0.000000 1.000000 0.000000
+INCREMENT                     1.000000
+LIMITSWITCH                   1 1
+MOTOR                         1 -1 0.001984
+OFFSET                        200.000000 -220.000000 -156.000000
+RANGE                         0.000000 205.000000 0.000000
+
+
+
+/////////////////////////////////////Z-CARRIAGE//////////////////////////////////////
+COMPONENT                     NewZCarriage.STL
+COLOR                         0.200000 0.300000 0.400000 0.800000
+DIRECTION                     0 0.000000 0.000000 1.000000
+INCREMENT                     0.250000
+LIMITSWITCH                   1 1
+MOTOR                         2 1 0.000484
+OFFSET                        200.000000 -220.000000 -156.000000
+RANGE                         0.000000 128.000000 0.000000
+
+
+
+/////////////////////////////////GENERAL PARAMETERS//////////////////////////////////
+DEFAULT_POD                   99.000000 -303.522000 -60.000000
+DESCRIPTION                   Printer with single 10cc Syringe (EFD 5111LL-B), X,Y,Z limit switches, 0.003875mm thread on Z axis, 0.015875mm thread on X,Y
+JOGSPEED                      15.000000
+MAXTOOLS                      1
+NAME                          Printer with one 10cc tool
+STATUS_UPDATE_PERIOD          25
+TOOLLIMITSWITCH               0 0

@@ -1,0 +1,79 @@
+ <toolScript name="ABS Plastic"
+             description="Tool:   heated plastic extrusion tool"
+             printer="Fab@Home Model 2 - Plastic Tool">
+
+  <settings>
+    <!-- Settings that are not per-tool -->
+    <printAcceleration text="Print Acceleration" units="mm/s^2">100</printAcceleration>
+  </settings>
+
+   <!-- Expose settings for the first tool -->
+   <tool name="ABS Plastic" material="ABS Plastic" scriptVariable="plastic">
+     <settings>
+       <sliceHeight text="Slice Height" units="mm">0.375</sliceHeight>
+       <!--Top speed in millimeters/second for this tool during execution of path.-->
+         <pathSpeed text="Path Speed" units="mm/s">20</pathSpeed>
+       <!--Width of the path in millimeters.-->
+         <pathWidth text="Path Width" units="mm">0.45</pathWidth>
+       <!--(millimeters of plunger motion)/(millimeters tool travel) along deposition path.-->
+         <depositionRate text="DepositionRate" units="mm/mm">0.010</depositionRate>
+       <!--Seconds of early dispensing to start flow quickly.-->
+         <pushout text="Pushout" units="seconds">0.15</pushout>
+       <!--Seconds reverse plunger motion to stop flow quickly.-->
+         <suckback text="Suckback" units="seconds">0.175</suckback>
+       <!--Seconds to delay suckback by.-->
+         <suckbackDelay text="Suckback Delay" units="seconds">0.075</suckbackDelay>
+       <!--Millimeters of clearance between tip and last layer when traversing.-->
+         <clearance text="Clearance" units="mm">2</clearance>
+       <!--Number of paths after which to trigger an automatic pause.-->
+         <pausePaths text="Pause after # Paths" units="# of paths">30000</pausePaths>
+       <!--no comment-->
+         <pitch text="Pitch" units="?">0.000397</pitch>
+     </settings>
+   </tool>
+
+  <printScript>
+  <![CDATA[
+
+progress.setSteps(plastic.meshes.length*2 + 4);
+
+slicer.setSliceHeight(plastic.sliceHeight);
+pather.set("PathWidth", plastic.pathWidth);
+for (var i = 0; i < plastic.meshes.length; ++i) {
+  progress.log("Slicing plastic Mesh");
+  slicer.doSlicing(plastic.meshes[i]);
+  progress.step();
+  progress.log("Pathing plastic Mesh");
+  pather.doPathing(plastic.meshes[i]);
+  progress.step();
+}
+
+var plasticMaterialCalibration = {
+  pathSpeed: plastic.pathSpeed,
+  depositionRate: plastic.depositionRate,
+  pathWidth: plastic.pathWidth,
+  depositionRate: plastic.depositionRate,
+  pushout: plastic.pushout,
+  suckback: plastic.suckback,
+  suckbackDelay: plastic.suckbackDelay,
+  clearance: plastic.clearance,
+  pausePaths: plastic.pausePaths,
+  pitch: plastic.pitch
+};
+
+var fabWriter = fabFile.fabAtHomeModel2Writer();
+
+fabWriter.addMeshes("plastic", plasticMaterialCalibration, plastic.meshes);
+progress.step();
+
+fabWriter.sortBottomUp();
+fabWriter.setPrintAcceleration(printAcceleration);
+
+progress.step();
+fabWriter.print();
+
+progress.finish();
+
+  ]]>
+  </printScript>
+</toolScript>

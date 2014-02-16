@@ -1,0 +1,79 @@
+ <toolScript name="Green Taper, Clear Silicone"
+             description="Tool:   10cc syringe of clear silicone with a green taper tip"
+             printer="Fab@Home Model 2">
+
+  <settings>
+    <!-- Settings that are not per-tool -->
+    <printAcceleration text="Print Acceleration" units="mm/s^2">100</printAcceleration>
+  </settings>
+
+   <!-- Expose settings for the first tool -->
+   <tool name="Green Taper Clear Silicone" material="Silicone" scriptVariable="silicone">
+     <settings>
+       <sliceHeight text="Slice Height" units="mm">0.7</sliceHeight>
+       <!--Top speed in millimeters/second for this tool during execution of path.-->
+         <pathSpeed text="Path Speed" units="mm/s">10</pathSpeed>
+       <!--Width of the path in millimeters.-->
+         <pathWidth text="Path Width" units="mm">0.8</pathWidth>
+       <!--(millimeters of plunger motion)/(millimeters tool travel) along deposition path.-->
+         <depositionRate text="DepositionRate" units="mm/mm">0.0035</depositionRate>
+       <!--Seconds of early dispensing to start flow quickly.-->
+         <pushout text="Pushout" units="seconds">0.2</pushout>
+       <!--Seconds reverse plunger motion to stop flow quickly.-->
+         <suckback text="Suckback" units="seconds">0.13</suckback>
+       <!--Seconds to delay suckback by.-->
+         <suckbackDelay text="Suckback Delay" units="seconds">0</suckbackDelay>
+       <!--Millimeters of clearance between tip and last layer when traversing.-->
+         <clearance text="Clearance" units="mm">2</clearance>
+       <!--Number of paths after which to trigger an automatic pause.-->
+         <pausePaths text="Pause after # Paths" units="# of paths">300</pausePaths>
+       <!--no comment-->
+         <pitch text="Pitch" units="?">0.000397</pitch>
+     </settings>
+   </tool>
+
+  <printScript>
+  <![CDATA[
+
+progress.setSteps(silicone.meshes.length*2 + 3);
+
+slicer.setSliceHeight(silicone.sliceHeight);
+pather.set("PathWidth", silicone.pathWidth);
+for (var i = 0; i < silicone.meshes.length; ++i) {
+  progress.log("Slicing Silicone Mesh");
+  slicer.doSlicing(silicone.meshes[i]);
+  progress.step();
+  progress.log("Pathing Silicone Mesh");
+  pather.doPathing(silicone.meshes[i]);
+  progress.step();
+}
+
+var siliconeMaterialCalibration = {
+  pathSpeed: silicone.pathSpeed,
+  depositionRate: silicone.depositionRate,
+  pathWidth: silicone.pathWidth,
+  depositionRate: silicone.depositionRate,
+  pushout: silicone.pushout,
+  suckback: silicone.suckback,
+  suckbackDelay: silicone.suckbackDelay,
+  clearance: silicone.clearance,
+  pausePaths: silicone.pausePaths,
+  pitch: silicone.pitch
+};
+
+var fabWriter = fabFile.fabAtHomeModel2Writer();
+
+fabWriter.addMeshes("silicone", siliconeMaterialCalibration, silicone.meshes);
+progress.step();
+
+fabWriter.sortBottomUp();
+fabWriter.setPrintAcceleration(printAcceleration);
+
+progress.step();
+fabWriter.print();
+
+progress.finish();
+
+  ]]>
+  </printScript>
+</toolScript>
